@@ -2,6 +2,10 @@
   "item.mysti.bronze": "Bronze Ingot",
   "item.mysti.tin": "Tin Ingot",
 
+"block.mysti.bronze_block": "Bronze Block",
+  "block.mysti.bronze_ore": "Bronze Ore",
+  "block.mysti.deepslate_bronze_ore": "Deeplsate Bronze Ore",
+
   "itemGroup.mystitab": "Mysti Grecia"
 
 }

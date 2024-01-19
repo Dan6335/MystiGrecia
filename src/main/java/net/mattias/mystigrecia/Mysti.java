@@ -1,6 +1,7 @@
 package net.mattias.mystigrecia;
 
 import com.mojang.logging.LogUtils;
+import net.mattias.mystigrecia.block.ModBlocks;
 import net.mattias.mystigrecia.item.ModItems;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,6 +23,7 @@ public class Mysti {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

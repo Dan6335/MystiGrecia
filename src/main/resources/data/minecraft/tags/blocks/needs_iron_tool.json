@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "mysti:bronze_ore",
+    "mysti:bronze_block",
+    "mysti:deepslate_bronze_ore"
+  ]
+}
