@@ -17,7 +17,7 @@ public class ModPlacedFeatures {
 
     public static final RegistryObject<PlacedFeature> BRONZE_ORE_PLACED = PLACED_FEATURES.register("bronze_ore_placed",
             () -> new PlacedFeature(ModConfiguredFeatures.BRONZE_ORE.getHolder().get(),
-                    commonOrePlacement(5, // VeinsPerChunk
+                    commonOrePlacement(7, // VeinsPerChunk
                             HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(40)))));
 
 
