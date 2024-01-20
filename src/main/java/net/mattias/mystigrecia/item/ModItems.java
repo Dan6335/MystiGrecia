@@ -16,7 +16,8 @@ public static final RegistryObject<Item> BRONZE = ITEMS.register("bronze",
         ()-> new Item(new Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
 public static final RegistryObject<Item> TIN = ITEMS.register("tin",
         ()-> new Item(new Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
-
+    public  static final RegistryObject<Item> CELESTIAL_BRONZE = ITEMS.register("celestial_bronze",
+            ()-> new Item(new Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

@@ -2,7 +2,9 @@ package net.mattias.mystigrecia;
 
 import com.mojang.logging.LogUtils;
 import net.mattias.mystigrecia.block.ModBlocks;
+import net.mattias.mystigrecia.block.entity.ModBlockEntities;
 import net.mattias.mystigrecia.item.ModItems;
+import net.mattias.mystigrecia.screen.ModMenuTypes;
 import net.mattias.mystigrecia.world.feature.ModConfiguredFeatures;
 import net.mattias.mystigrecia.world.feature.ModPlacedFeatures;
 import net.minecraftforge.common.MinecraftForge;
@@ -29,6 +31,9 @@ public class Mysti {
 
         ModConfiguredFeatures.register(modEventBus);
         ModPlacedFeatures.register(modEventBus);
+
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

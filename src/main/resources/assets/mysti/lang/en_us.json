@@ -1,10 +1,12 @@
 {
   "item.mysti.bronze": "Bronze Ingot",
   "item.mysti.tin": "Tin Ingot",
+  "item.mysti.celestial_bronze": "Celestial Bronze Ingot",
 
 "block.mysti.bronze_block": "Bronze Block",
   "block.mysti.bronze_ore": "Bronze Ore",
   "block.mysti.deepslate_bronze_ore": "Deeplsate Bronze Ore",
+  "block.mysti.celestial_bronze_workbench": "Celestial Bronze Infuser",
 
   "itemGroup.mystitab": "Mysti Grecia"
 
