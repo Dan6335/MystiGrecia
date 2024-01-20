@@ -4,6 +4,7 @@ import net.mattias.mystigrecia.Mysti;
 import net.minecraft.core.Registry;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.placement.*;
+import net.minecraftforge.eventbus.EventBus;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -18,7 +19,7 @@ public class ModPlacedFeatures {
     public static final RegistryObject<PlacedFeature> BRONZE_ORE_PLACED = PLACED_FEATURES.register("bronze_ore_placed",
             () -> new PlacedFeature(ModConfiguredFeatures.BRONZE_ORE.getHolder().get(),
                     commonOrePlacement(7, // VeinsPerChunk
-                            HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(40)))));
+                            HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(60)))));
 
 
     public static List<PlacementModifier> orePlacement(PlacementModifier p_195347_, PlacementModifier p_195348_) {
@@ -29,12 +30,10 @@ public class ModPlacedFeatures {
         return orePlacement(CountPlacement.of(p_195344_), p_195345_);
     }
 
-        public static List<PlacementModifier> rareOrePlacement(int p_195350_, PlacementModifier p_195351_) {
-            return orePlacement(RarityFilter.onAverageOnceEvery(p_195350_), p_195351_);
-        }
-
-        public static void register(IEventBus eventBus) {
+    public static List<PlacementModifier> rareOrePlacement(int p_195350_, PlacementModifier p_195351_) {
+        return orePlacement(RarityFilter.onAverageOnceEvery(p_195350_), p_195351_);
+    }
+    public static void register(IEventBus eventBus) {
         PLACED_FEATURES.register(eventBus);
     }
-
 }
