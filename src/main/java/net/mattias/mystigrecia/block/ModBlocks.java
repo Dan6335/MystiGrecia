@@ -1,6 +1,7 @@
 package net.mattias.mystigrecia.block;
 
 import net.mattias.mystigrecia.Mysti;
+import net.mattias.mystigrecia.block.custom.CelestialBronzeWorkBenchBlock;
 import net.mattias.mystigrecia.item.ModCreativeModeTab;
 import net.mattias.mystigrecia.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -28,6 +29,10 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> DEEPSLATE_BRONZE_ORE = registerBlock("deepslate_bronze_ore",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(6f).requiresCorrectToolForDrops()), ModCreativeModeTab.MYSTI_GRECIA);
+
+    public static final RegistryObject<Block> CELESTIAL_BRONZE_WORKBENCH = registerBlock("celestial_bronze_workbench",
+            ()->  new CelestialBronzeWorkBenchBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(6f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.MYSTI_GRECIA);
 
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
