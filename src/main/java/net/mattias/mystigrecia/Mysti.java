@@ -4,9 +4,11 @@ import com.mojang.logging.LogUtils;
 import net.mattias.mystigrecia.block.ModBlocks;
 import net.mattias.mystigrecia.block.entity.ModBlockEntities;
 import net.mattias.mystigrecia.item.ModItems;
+import net.mattias.mystigrecia.screen.CelestialBronzeWorkBenchScreen;
 import net.mattias.mystigrecia.screen.ModMenuTypes;
 import net.mattias.mystigrecia.world.feature.ModConfiguredFeatures;
 import net.mattias.mystigrecia.world.feature.ModPlacedFeatures;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -45,6 +47,12 @@ public class Mysti {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-        }
+            event.enqueueWork(() ->{
+
+
+                MenuScreens.register(ModMenuTypes.CELESTIAL_BRONZE_WORKBENCH_MENU.get(), CelestialBronzeWorkBenchScreen::new);
+            });
+       }
+
     }
 }

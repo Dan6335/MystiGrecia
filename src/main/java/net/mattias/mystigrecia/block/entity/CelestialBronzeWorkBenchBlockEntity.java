@@ -148,7 +148,7 @@ public class CelestialBronzeWorkBenchBlockEntity extends BlockEntity implements 
 
         if(hasRecipe(pEntity)) {
             pEntity.itemHandler.extractItem(1, 1, false);
-            pEntity.itemHandler.setStackInSlot(2, new ItemStack(ModItems.BRONZE.get(),
+            pEntity.itemHandler.setStackInSlot(2, new ItemStack(ModItems.CELESTIAL_BRONZE.get(),
                     pEntity.itemHandler.getStackInSlot(2).getCount() + 1));
 
             pEntity.resetProgress();
@@ -161,10 +161,10 @@ public class CelestialBronzeWorkBenchBlockEntity extends BlockEntity implements 
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
 
-        boolean hasRawGemInFirstSlot = entity.itemHandler.getStackInSlot(1).getItem() == ModItems.CELESTIAL_BRONZE.get();
+        boolean hasRawGemInFirstSlot = entity.itemHandler.getStackInSlot(1).getItem() == ModItems.BRONZE.get();
 
         return hasRawGemInFirstSlot && canInsertAmountIntoOutputSlot(inventory) &&
-                canInsertItemIntoOutputSlot(inventory, new ItemStack(ModItems.BRONZE.get(), 1));
+                canInsertItemIntoOutputSlot(inventory, new ItemStack(ModItems.CELESTIAL_BRONZE.get(), 1));
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack stack) {
