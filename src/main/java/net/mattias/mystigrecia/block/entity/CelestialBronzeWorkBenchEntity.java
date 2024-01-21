@@ -115,7 +115,7 @@ public class CelestialBronzeWorkBenchEntity extends BlockEntity implements MenuP
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
         progress = nbt.getInt("celestial_infusing_station.progress");
     }
-
+//e
     public void drops() {
         SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
         for (int i = 0; i < itemHandler.getSlots(); i++) {
