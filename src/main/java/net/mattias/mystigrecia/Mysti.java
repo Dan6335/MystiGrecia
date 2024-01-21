@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.mattias.mystigrecia.block.ModBlocks;
 import net.mattias.mystigrecia.block.entity.ModBlockEntities;
 import net.mattias.mystigrecia.item.ModItems;
+import net.mattias.mystigrecia.recipe.ModRecipes;
 import net.mattias.mystigrecia.screen.CelestialBronzeWorkBenchScreen;
 import net.mattias.mystigrecia.screen.ModMenuTypes;
 import net.mattias.mystigrecia.world.feature.ModConfiguredFeatures;
@@ -36,6 +37,8 @@ public class Mysti {
 
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
+
+        ModRecipes.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

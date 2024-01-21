@@ -1,0 +1,11 @@
+{"type": "mysti:celestial_infusing",
+"ingredients": [
+  {
+    "item": "minecraft:stick"
+
+  }
+],
+  "output": {
+    "item": "minecraft:stone"
+  }
+}

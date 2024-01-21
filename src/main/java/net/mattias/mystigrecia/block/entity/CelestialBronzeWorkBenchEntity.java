@@ -1,6 +1,7 @@
 package net.mattias.mystigrecia.block.entity;
 
 import net.mattias.mystigrecia.item.ModItems;
+import net.mattias.mystigrecia.recipe.CelestialBronzeWorkBenchRecipe;
 import net.mattias.mystigrecia.screen.CelestialBronzeWorkBenchMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -25,7 +26,9 @@ import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class CelestialBronzeWorkBenchBlockEntity extends BlockEntity implements MenuProvider {
+import java.util.Optional;
+
+public class CelestialBronzeWorkBenchEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(3) {
         @Override
         protected void onContentsChanged(int slot) {
@@ -39,14 +42,14 @@ public class CelestialBronzeWorkBenchBlockEntity extends BlockEntity implements 
     private int progress = 0;
     private int maxProgress = 78;
 
-    public CelestialBronzeWorkBenchBlockEntity(BlockPos pos, BlockState state) {
+    public CelestialBronzeWorkBenchEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.CELESTIAL_BRONZE_WORK_BENCH_BLOCK.get(), pos, state);
         this.data = new ContainerData() {
             @Override
             public int get(int index) {
                 return switch (index) {
-                    case 0 -> CelestialBronzeWorkBenchBlockEntity.this.progress;
-                    case 1 -> CelestialBronzeWorkBenchBlockEntity.this.maxProgress;
+                    case 0 -> CelestialBronzeWorkBenchEntity.this.progress;
+                    case 1 -> CelestialBronzeWorkBenchEntity.this.maxProgress;
                     default -> 0;
                 };
             }
@@ -54,8 +57,8 @@ public class CelestialBronzeWorkBenchBlockEntity extends BlockEntity implements 
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0 -> CelestialBronzeWorkBenchBlockEntity.this.progress = value;
-                    case 1 -> CelestialBronzeWorkBenchBlockEntity.this.maxProgress = value;
+                    case 0 -> CelestialBronzeWorkBenchEntity.this.progress = value;
+                    case 1 -> CelestialBronzeWorkBenchEntity.this.maxProgress = value;
                 }
             }
 
@@ -68,7 +71,7 @@ public class CelestialBronzeWorkBenchBlockEntity extends BlockEntity implements 
 
     @Override
     public Component getDisplayName() {
-        return Component.literal("Celestial Bronze Infuser");
+        return Component.literal("Celestial Infusing Station ");
     }
 
     @Nullable
@@ -101,7 +104,7 @@ public class CelestialBronzeWorkBenchBlockEntity extends BlockEntity implements 
     @Override
     protected void saveAdditional(CompoundTag nbt) {
         nbt.put("inventory", itemHandler.serializeNBT());
-        nbt.putInt("celestial_bronze_workbench.progress", this.progress);
+        nbt.putInt("celestial_infusing_station.progress", this.progress);
 
         super.saveAdditional(nbt);
     }
@@ -110,7 +113,7 @@ public class CelestialBronzeWorkBenchBlockEntity extends BlockEntity implements 
     public void load(CompoundTag nbt) {
         super.load(nbt);
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
-        progress = nbt.getInt("celestial_bronze_workbench.progress");
+        progress = nbt.getInt("celestial_infusing_station.progress");
     }
 
     public void drops() {
@@ -122,7 +125,7 @@ public class CelestialBronzeWorkBenchBlockEntity extends BlockEntity implements 
         Containers.dropContents(this.level, this.worldPosition, inventory);
     }
 
-    public static void tick(Level level, BlockPos pos, BlockState state, CelestialBronzeWorkBenchBlockEntity pEntity) {
+    public static void tick(Level level, BlockPos pos, BlockState state, CelestialBronzeWorkBenchEntity pEntity) {
         if(level.isClientSide()) {
             return;
         }
@@ -144,27 +147,38 @@ public class CelestialBronzeWorkBenchBlockEntity extends BlockEntity implements 
         this.progress = 0;
     }
 
-    private static void craftItem(CelestialBronzeWorkBenchBlockEntity pEntity) {
+    private static void craftItem(CelestialBronzeWorkBenchEntity pEntity) {
+        Level level = pEntity.level;
+        SimpleContainer inventory = new SimpleContainer(pEntity.itemHandler.getSlots());
+        for (int i = 0; i < pEntity.itemHandler.getSlots(); i++) {
+            inventory.setItem(i, pEntity.itemHandler.getStackInSlot(i));
+        }
+
+        Optional<CelestialBronzeWorkBenchRecipe> recipe = level.getRecipeManager()
+                .getRecipeFor(CelestialBronzeWorkBenchRecipe.Type.INSTANCE, inventory, level);
 
         if(hasRecipe(pEntity)) {
             pEntity.itemHandler.extractItem(1, 1, false);
-            pEntity.itemHandler.setStackInSlot(2, new ItemStack(ModItems.CELESTIAL_BRONZE.get(),
+            pEntity.itemHandler.setStackInSlot(2, new ItemStack(recipe.get().getResultItem().getItem(),
                     pEntity.itemHandler.getStackInSlot(2).getCount() + 1));
 
             pEntity.resetProgress();
         }
     }
 
-    private static boolean hasRecipe(CelestialBronzeWorkBenchBlockEntity entity) {
+    private static boolean hasRecipe(CelestialBronzeWorkBenchEntity entity) {
+        Level level = entity.level;
         SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
         for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
 
-        boolean hasRawGemInFirstSlot = entity.itemHandler.getStackInSlot(1).getItem() == ModItems.BRONZE.get();
+        Optional<CelestialBronzeWorkBenchRecipe> recipe = level.getRecipeManager()
+                .getRecipeFor(CelestialBronzeWorkBenchRecipe.Type.INSTANCE, inventory, level);
 
-        return hasRawGemInFirstSlot && canInsertAmountIntoOutputSlot(inventory) &&
-                canInsertItemIntoOutputSlot(inventory, new ItemStack(ModItems.CELESTIAL_BRONZE.get(), 1));
+
+        return recipe.isPresent() && canInsertAmountIntoOutputSlot(inventory) &&
+                canInsertItemIntoOutputSlot(inventory, recipe.get().getResultItem());
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack stack) {

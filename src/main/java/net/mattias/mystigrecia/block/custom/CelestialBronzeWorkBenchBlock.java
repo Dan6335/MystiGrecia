@@ -1,6 +1,6 @@
 package net.mattias.mystigrecia.block.custom;
 
-import net.mattias.mystigrecia.block.entity.CelestialBronzeWorkBenchBlockEntity;
+import net.mattias.mystigrecia.block.entity.CelestialBronzeWorkBenchEntity;
 import net.mattias.mystigrecia.block.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -70,8 +70,8 @@ public class CelestialBronzeWorkBenchBlock extends BaseEntityBlock {
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if (pState.getBlock() != pNewState.getBlock()) {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof CelestialBronzeWorkBenchBlockEntity) {
-                ((CelestialBronzeWorkBenchBlockEntity) blockEntity).drops();
+            if (blockEntity instanceof CelestialBronzeWorkBenchEntity) {
+                ((CelestialBronzeWorkBenchEntity) blockEntity).drops();
             }
         }
         super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
@@ -82,8 +82,8 @@ public class CelestialBronzeWorkBenchBlock extends BaseEntityBlock {
                                  Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
-            if(entity instanceof CelestialBronzeWorkBenchBlockEntity) {
-                NetworkHooks.openScreen(((ServerPlayer)pPlayer), (CelestialBronzeWorkBenchBlockEntity)entity, pPos);
+            if(entity instanceof CelestialBronzeWorkBenchEntity) {
+                NetworkHooks.openScreen(((ServerPlayer)pPlayer), (CelestialBronzeWorkBenchEntity)entity, pPos);
             } else {
                 throw new IllegalStateException("Our Container provider is missing!");
             }
@@ -95,7 +95,7 @@ public class CelestialBronzeWorkBenchBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new CelestialBronzeWorkBenchBlockEntity(pos, state);
+        return new CelestialBronzeWorkBenchEntity(pos, state);
     }
 
     @Nullable
@@ -103,6 +103,6 @@ public class CelestialBronzeWorkBenchBlock extends BaseEntityBlock {
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state,
                                                                   BlockEntityType<T> type) {
         return createTickerHelper(type, ModBlockEntities.CELESTIAL_BRONZE_WORK_BENCH_BLOCK.get(),
-                CelestialBronzeWorkBenchBlockEntity::tick);
+                CelestialBronzeWorkBenchEntity::tick);
     }
 }

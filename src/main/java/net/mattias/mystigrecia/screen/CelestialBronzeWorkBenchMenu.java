@@ -1,7 +1,7 @@
 package net.mattias.mystigrecia.screen;
 
 import net.mattias.mystigrecia.block.ModBlocks;
-import net.mattias.mystigrecia.block.entity.CelestialBronzeWorkBenchBlockEntity;
+import net.mattias.mystigrecia.block.entity.CelestialBronzeWorkBenchEntity;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -13,7 +13,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class CelestialBronzeWorkBenchMenu extends AbstractContainerMenu {
-    public final CelestialBronzeWorkBenchBlockEntity blockEntity;
+    public final CelestialBronzeWorkBenchEntity blockEntity;
     private final Level level;
     private final ContainerData data;
 
@@ -24,7 +24,7 @@ public class CelestialBronzeWorkBenchMenu extends AbstractContainerMenu {
     public CelestialBronzeWorkBenchMenu(int id, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.CELESTIAL_BRONZE_WORKBENCH_MENU.get(), id);
         checkContainerSize(inv, 3);
-        blockEntity = (CelestialBronzeWorkBenchBlockEntity) entity;
+        blockEntity = (CelestialBronzeWorkBenchEntity) entity;
         this.level = inv.player.level;
         this.data = data;
 
