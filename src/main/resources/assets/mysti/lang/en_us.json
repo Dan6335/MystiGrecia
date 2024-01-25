@@ -3,7 +3,18 @@
   "item.mysti.tin": "Tin Ingot",
   "item.mysti.celestial_bronze": "Celestial Bronze Ingot",
 
-"block.mysti.bronze_block": "Bronze Block",
+  "item:mysti.bronze_helmet": "Bronze Helmet",
+  "item:mysti.bronze_chestplate": "Bronze Chestplate",
+  "item:mysti.bronze_leggings": "Bronze Leggings",
+  "item:mysti.bronze_boots": "Bronze Boots",
+
+  "item:mysti.tin_helmet": "Tin Helmet",
+  "item:mysti.tin_chestplate": "Tin Chestplate",
+  "item:mysti.tin_leggings": "Tin Leggings",
+  "item:mysti.tin_boots": "Tin Boots",
+
+
+  "block.mysti.bronze_block": "Bronze Block",
   "block.mysti.bronze_ore": "Bronze Ore",
   "block.mysti.deepslate_bronze_ore": "Deeplsate Bronze Ore",
   "block.mysti.celestial_bronze_workbench": "Celestial Bronze Infuser",
