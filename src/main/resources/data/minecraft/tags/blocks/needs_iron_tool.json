@@ -3,6 +3,10 @@
   "values": [
     "mysti:bronze_ore",
     "mysti:bronze_block",
-    "mysti:deepslate_bronze_ore"
+    "mysti:deepslate_bronze_ore",
+    "mysti:silver_ore",
+    "mysti:tin_ore",
+    "mysti:deepslate_silver_ore",
+    "mysti:deepslate_tin_ore"
   ]
 }
