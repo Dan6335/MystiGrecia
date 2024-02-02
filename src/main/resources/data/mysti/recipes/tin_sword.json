@@ -9,9 +9,9 @@
     }
   },
   "pattern": [
-    "X",
-    "X",
-    " #"
+    " X ",
+    " X ",
+    " # "
   ],
   "result": {
     "item": "mysti:tin_sword"

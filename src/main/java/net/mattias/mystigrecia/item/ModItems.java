@@ -43,34 +43,34 @@ public static final RegistryObject<Item> TIN = ITEMS.register("tin",
             ()-> new Item(new Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA).food(ModFoods.NECTAR)));
 
     public  static final RegistryObject<Item> BRONZE_SWORD = ITEMS.register("bronze_sword",
-            ()-> new SwordItem(ModTiers.BRONZE, 6, 1.6f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
+            ()-> new SwordItem(ModTiers.BRONZE, 6, .6f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
 
     public  static final RegistryObject<Item> BRONZE_AXE = ITEMS.register("bronze_axe",
-            ()-> new AxeItem(ModTiers.BRONZE, 4, 0.9f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
+            ()-> new AxeItem(ModTiers.BRONZE, 4, 0.2f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
 
     public  static final RegistryObject<Item> BRONZE_PICKAXE = ITEMS.register("bronze_pickaxe",
-            ()-> new PickaxeItem(ModTiers.BRONZE, 2, 5f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
+            ()-> new PickaxeItem(ModTiers.BRONZE, 2, .4f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
 
     public  static final RegistryObject<Item> BRONZE_SHOVEL = ITEMS.register("bronze_shovel",
-            ()-> new ShovelItem(ModTiers.BRONZE, 1, 1f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
+            ()-> new ShovelItem(ModTiers.BRONZE, 1, .2f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
 
     public  static final RegistryObject<Item> BRONZE_HOE = ITEMS.register("bronze_hoe",
-            ()-> new HoeItem(ModTiers.BRONZE, 1, 3f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
+            ()-> new HoeItem(ModTiers.BRONZE, 1, .4f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
 
     public  static final RegistryObject<Item> TIN_SWORD = ITEMS.register("tin_sword",
-            ()-> new SwordItem(ModTiers.TIN, 5, 1.6f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
+            ()-> new SwordItem(ModTiers.TIN, 5, .6f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
 
     public  static final RegistryObject<Item> TIN_AXE = ITEMS.register("tin_axe",
-            ()-> new SwordItem(ModTiers.TIN, 3, 0.8f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
+            ()-> new SwordItem(ModTiers.TIN, 3, .2f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
 
     public  static final RegistryObject<Item> TIN_PICKAXE = ITEMS.register("tin_pickaxe",
-            ()-> new SwordItem(ModTiers.TIN, 2, 5f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
+            ()-> new SwordItem(ModTiers.TIN, 2, .4f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
 
     public  static final RegistryObject<Item> TIN_SHOVEL = ITEMS.register("tin_shovel",
-            ()-> new SwordItem(ModTiers.TIN, 1, 1f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
+            ()-> new SwordItem(ModTiers.TIN, 1, .2f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
 
     public  static final RegistryObject<Item> TIN_HOE = ITEMS.register("tin_hoe",
-            ()-> new SwordItem(ModTiers.TIN, 1, 3f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
+            ()-> new SwordItem(ModTiers.TIN, 1, .4f, new  Item.Properties().tab(ModCreativeModeTab.MYSTI_GRECIA)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

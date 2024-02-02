@@ -1,8 +1,9 @@
-{"type": "mysti:celestial_infusing",
-"ingredients": [
+ {"type": "mysti:celestial_infusing",
+
+   "ingredients": [
   {
-    "item": "mysti:bronze",
-    "item": "minecraft:gold_ingot"
+    "item": "minecraft:gold_ingot",
+    "item": "mysti:bronze"
 
   }
 ],

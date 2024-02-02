@@ -9,9 +9,9 @@
     }
   },
   "pattern": [
-    "XX",
-    "X#",
-    " #"
+    "XX ",
+    "X# ",
+    " # "
   ],
   "result": {
     "item": "mysti:tin_axe"

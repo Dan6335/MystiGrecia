@@ -10,8 +10,8 @@
   },
   "pattern": [
     "XXX",
-    " #",
-    " #"
+    " # ",
+    " # "
   ],
   "result": {
     "item": "mysti:bronze_pickaxe"

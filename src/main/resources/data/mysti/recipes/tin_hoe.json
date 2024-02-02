@@ -9,9 +9,9 @@
     }
   },
   "pattern": [
-    "XX",
-    "#",
-    " #"
+    "XX ",
+    " # ",
+    " # "
   ],
   "result": {
     "item": "mysti:tin_hoe"

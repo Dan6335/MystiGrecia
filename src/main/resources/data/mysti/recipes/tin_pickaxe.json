@@ -10,8 +10,8 @@
   },
   "pattern": [
     "XXX",
-    "#",
-    " #"
+    " # ",
+    " # "
   ],
   "result": {
     "item": "mysti:tin_pickaxe"
