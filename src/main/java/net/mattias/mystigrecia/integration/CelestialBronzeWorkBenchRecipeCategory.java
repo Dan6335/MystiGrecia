@@ -50,6 +50,7 @@ public class CelestialBronzeWorkBenchRecipeCategory implements IRecipeCategory<C
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, CelestialBronzeWorkBenchRecipe recipe, IFocusGroup focuses) {
+        builder.addSlot(RecipeIngredientRole.INPUT, 12, 15).addIngredients(recipe.getIngredients().get(1));
         builder.addSlot(RecipeIngredientRole.INPUT, 86, 15).addIngredients(recipe.getIngredients().get(0));
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 86, 60).addItemStack(recipe.getResultItem());
