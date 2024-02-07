@@ -1,11 +1,11 @@
 {
-  "type": "mysti:celestial_infusing",
+  "type": "mysti:celestial_from_infusing",
   "ingredients": [
     {
       "item": "minecraft:gold_ingot"
     },
     {
-      "item": "mysti:bronze"
+      "item": "mysti:tin"
     }
   ],
   "output": {
