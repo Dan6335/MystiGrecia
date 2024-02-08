@@ -19,7 +19,7 @@ public class CelestialBronzeWorkBenchRecipe implements Recipe<SimpleContainer> {
     private final NonNullList<Ingredient> recipeItems;
 
     public CelestialBronzeWorkBenchRecipe(ResourceLocation id, ItemStack output,
-                                    NonNullList<Ingredient> recipeItems) {
+                                          NonNullList<Ingredient> recipeItems) {
         this.id = id;
         this.output = output;
         this.recipeItems = recipeItems;
@@ -27,12 +27,20 @@ public class CelestialBronzeWorkBenchRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
-        if(pLevel.isClientSide()) {
+        if (pLevel.isClientSide()) {
             return false;
         }
 
-        return recipeItems.get(0).test(pContainer.getItem(1));
+        // Check if the container has at least two items
+        if (pContainer.getContainerSize() < 2) {
+            return false;
+        }
+
+        // Check if both items match the recipe
+        return recipeItems.get(0).test(pContainer.getItem(0)) &&
+                recipeItems.get(1).test(pContainer.getItem(1));
     }
+
 
     @Override
     public NonNullList<Ingredient> getIngredients() {
