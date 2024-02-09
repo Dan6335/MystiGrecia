@@ -37,8 +37,10 @@ public class CelestialBronzeWorkBenchRecipe implements Recipe<SimpleContainer> {
         }
 
         // Check if both items match the recipe
-        return recipeItems.get(0).test(pContainer.getItem(0)) &&
-                recipeItems.get(1).test(pContainer.getItem(1));
+       /*return recipeItems.get(0).test(pContainer.getItem(0)) &&
+                recipeItems.get(1).test(pContainer.getItem(1));*/
+        //This is where the problem was.
+        return recipeItems.get(0).test(pContainer.getItem(1));
     }
 
 

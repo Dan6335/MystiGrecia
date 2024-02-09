@@ -14,6 +14,9 @@ import net.mattias.mystigrecia.recipe.CelestialBronzeWorkBenchRecipe;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+
+import java.util.List;
 
 public class CelestialBronzeWorkBenchRecipeCategory implements IRecipeCategory<CelestialBronzeWorkBenchRecipe> {
     public final static ResourceLocation UID = new ResourceLocation(Mysti.MOD_ID, "celestial_infusing");
@@ -50,8 +53,15 @@ public class CelestialBronzeWorkBenchRecipeCategory implements IRecipeCategory<C
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, CelestialBronzeWorkBenchRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 12, 15).addIngredients(recipe.getIngredients().get(1));
-        builder.addSlot(RecipeIngredientRole.INPUT, 86, 15).addIngredients(recipe.getIngredients().get(0));
+        /*builder.addSlot(RecipeIngredientRole.INPUT, 12, 15).addIngredients(recipe.getIngredients().get(1));
+        builder.addSlot(RecipeIngredientRole.INPUT, 86, 15).addIngredients(recipe.getIngredients().get(0));*/
+        List<Ingredient> ingredients = recipe.getIngredients();
+        if (ingredients.size() > 1) {
+            builder.addSlot(RecipeIngredientRole.INPUT, 12, 15).addIngredients(ingredients.get(1));
+        }
+        if (!ingredients.isEmpty()) {
+            builder.addSlot(RecipeIngredientRole.INPUT, 86, 15).addIngredients(ingredients.get(0));
+        }
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 86, 60).addItemStack(recipe.getResultItem());
     }
